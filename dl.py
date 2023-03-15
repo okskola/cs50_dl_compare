@@ -1,3 +1,8 @@
+# This is a Python script to run in Codespaces to download all students submissions and check them with compare50.
+#
+# MIT License
+# Copyright (c) 2023 https://github.com/okskola
+
 import requests
 import re
 import zipfile 
