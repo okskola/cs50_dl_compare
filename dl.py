@@ -1,12 +1,11 @@
-username = 'xxx'
-token = 'xxx'
-
 import requests
 import re
 import zipfile 
 import csv
 import os
 
+username = os.environ['GIT_USERNAME']
+token = os.environ['GIT_TOKEN']
 
 print("Sākums")
 
@@ -24,3 +23,8 @@ with open('dl.csv', mode='r') as csv_file:
         with zipfile.ZipFile(fname, 'r') as zipObj:
             zipObj.extractall()
         os.remove(fname) 
+print("Lejupielāde ir pabeigta")
+os.system('compare50 * -x "dl.csv" -x "dl.py" -x "comp50.sh"')
+print("Arhivē 'results' mapi")
+os.system("zip -r results.zip results/")
+print("Viss ir pabeigts. Lejupielādē 'results' arhīvu")
