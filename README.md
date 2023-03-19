@@ -4,11 +4,11 @@ This is a Python script to run in Codespaces to download all students submission
 
 Usage:
 
-* Create Codespaces for this repository
-* Run  pip install compare50
-* In Github https://github.com/USERNAME/REPOSITORY/settings/secrets/codespaces you must create two secrets: GIT_USERNAME and GIT_TOKEN (create token here https://github.com/settings/tokens).
-* From https://submit.cs50.io/courses/COURSEID/ download csv file
-* Rename csv as dl.csv 
+* Create Codespaces for the repository
+* Run pip install compare50
+* In Github Codespace secrets (https://github.com/USERNAME/REPOSITORY/settings/secrets/codespaces) you must create two secrets: GIT_USERNAME and GIT_TOKEN (create token here https://github.com/settings/tokens).
+* From submit.cs50.io (https://submit.cs50.io/courses/COURSEID/) download csv file
+* Copy/paste csv contents to the dl.csv file
 * Run Python script dl.py
-* Download results.zip, unzip and check the compare results locally
+* Download results.zip, unzip and check the comparison results locally
 * Delete results.zip and all folders from repository
