@@ -12,7 +12,7 @@ import os
 username = os.environ['GIT_USERNAME']
 token = os.environ['GIT_TOKEN']
 
-print("Sākums")
+print("Starting")
 
 with open('dl.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
@@ -28,8 +28,8 @@ with open('dl.csv', mode='r') as csv_file:
         with zipfile.ZipFile(fname, 'r') as zipObj:
             zipObj.extractall()
         os.remove(fname) 
-print("Lejupielāde ir pabeigta")
+print("Download completed, running compare50")
 os.system('compare50 * -x "dl.csv" -x "dl.py" -x "comp50.sh"')
-print("Arhivē 'results' mapi")
+print("Compare50 finished, archiving 'results' folder")
 os.system("zip -r results.zip results/")
-print("Viss ir pabeigts. Lejupielādē 'results' arhīvu")
+print("Done! Please download 'results' archive. After that remove data from csv and delete all student folders including 'results' folder and file.")
