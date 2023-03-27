@@ -11,8 +11,15 @@ import os
 
 username = os.environ['GIT_USERNAME']
 token = os.environ['GIT_TOKEN']
+filesdir = "files"
 
 print("Starting")
+
+try:
+    os.mkdir(filesdir)
+except OSError:
+    # folder already exists at the destination
+    pass
 
 with open('dl.csv', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
@@ -26,11 +33,13 @@ with open('dl.csv', mode='r') as csv_file:
         open(fname, 'wb').write(r.content)
         r.close()
         with zipfile.ZipFile(fname, 'r') as zipObj:
-            zipObj.extractall()
+            zipObj.extractall(filesdir)
         os.remove(fname) 
 print("Download completed, running compare50")
-os.system('compare50 * -x "dl.csv" -x "dl.py" -x "comp50.sh"')
+#os.system('compare50 * -x "dl.csv" -x "dl.py" -x "comp50.sh"')
+os.system('compare50 '+os.path.join(filesdir, '*'))
+
 print("Compare50 finished, archiving 'results' folder")
 os.system("zip -r results.zip results/")
 print("Done! Please download 'results' archive.")
-print("After that remove data from csv and delete all student folders including 'results' folder and file.")
+print("Then remove data from csv, delete folders 'files' and 'results' and delete results.zip.")
