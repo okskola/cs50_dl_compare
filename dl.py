@@ -2,12 +2,15 @@
 #
 # MIT License
 # Copyright (c) 2023 https://github.com/okskola
+#
+# Warning! Almost no error checking done. Use at your own risk.
+#
 
-import requests
 import re
 import zipfile 
 import csv
 import os
+import requests
 
 username = os.environ['GIT_USERNAME']
 token = os.environ['GIT_TOKEN']
