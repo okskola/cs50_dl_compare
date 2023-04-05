@@ -14,7 +14,7 @@ import requests
 
 username = os.environ['GIT_USERNAME']
 token = os.environ['GIT_TOKEN']
-filesdir = "files"
+filesdir = "student_files"
 distrdir = "distr"
 archir = "archived"
 
@@ -53,4 +53,4 @@ else:
 print("Compare50 finished, archiving 'results' folder")
 os.system("zip -r results.zip results/")
 print("Done! Please download 'results' archive.")
-print("Then remove data from csv, delete folders 'files' and 'results' and delete results.zip.")
+print("Then remove data from csv, delete folders 'student_files' and 'results' and delete results.zip.")
