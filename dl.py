@@ -43,12 +43,21 @@ with open('dl.csv', mode='r') as csv_file:
         os.remove(fname) 
 print("Download completed, running compare50")
 #os.system('compare50 * -x "dl.csv" -x "dl.py" -x "comp50.sh"')
+cmd = ""
 if len(folder) == 0:
-    os.system('compare50 '+os.path.join(filesdir, '*'))
+    cmd = 'compare50 '+os.path.join(filesdir, '*')
 else:
-    os.system( 'compare50 '+os.path.join( filesdir,'*' ) + 
-              " -d " + os.path.join( distrdir, folder, '*' ) + 
-              " -a " + os.path.join( archir, folder, '*' ) )
+    cmd = 'compare50 '+os.path.join( filesdir,'*' )
+    if os.path.isdir( os.path.join( distrdir, folder ) ):
+        cmd = cmd + " -d " + os.path.join( distrdir, folder, '*' )
+    if os.path.isdir( os.path.join( archir, folder ) ):
+        cmd = cmd + " -a " + os.path.join( archir, folder, '*' )
+
+#    cmd = 'compare50 '+os.path.join( filesdir,'*' ) + \
+#              " -d " + os.path.join( distrdir, folder, '*' ) + \
+#              " -a " + os.path.join( archir, folder, '*' )
+print(cmd)
+os.system(cmd)
 
 print("Compare50 finished, archiving 'results' folder")
 os.system("zip -r results.zip results/")
