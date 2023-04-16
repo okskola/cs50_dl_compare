@@ -19,7 +19,7 @@ distrdir = "distr"
 archir = "archived"
 
 print("Starting")
-folder = input("Folder name for archived and distributed files (empty for none):")
+folder = input("Folder name to check against archived and distributed files (empty for none):")
 
 try:
     os.mkdir(filesdir)
