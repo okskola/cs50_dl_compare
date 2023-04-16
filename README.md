@@ -11,6 +11,7 @@ Usage:
 * Make it private so students do not see uploaded solutions
 * Upload archived solutions to the "archived" folder
 * Copy/paste csv contents to the dl.csv file
-* Run Python script dl.py
+* Run Python dl.py
 * Download results.zip, unzip and check the comparison results locally
+* You can also zip student files and download if you want (zip -r student_files.zip student_files/)
 * Delete folders 'student_files' and 'results' and delete results.zip
